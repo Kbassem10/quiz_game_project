@@ -51,18 +51,19 @@ int load_quiz(const char* file_name, Questions** question){
 
     (*question) = malloc(sizeof(Questions) * size);
 
+    rewind(file);
     for(int i = 0; i < size; i++){
-        fscanf(file, "%[^?]", (*question)[i].question);
-        fscanf(file, " A) %[^\n]s B) %[^\n]s C) %[^\n]s D) %[^\n]s %c",
-               (*question)[i].option1,
-               (*question)[i].option2,
-               (*question)[i].option3,
-               (*question)[i].option4,
-               &(*question)[i].correct_option);
-    }
+        fscanf(file, "%[^\n]\n", (*question)[i].question);
+        fscanf(file, "A) %[^\n]\n", (*question)[i].option1);
+        fscanf(file, "B) %[^\n]\n", (*question)[i].option2);
+        fscanf(file, "C) %[^\n]\n", (*question)[i].option3);
+        fscanf(file, "D) %[^\n]\n", (*question)[i].option4);
+        fscanf(file, " %c\n", &(*question)[i].correct_option);
 
+    }
     fclose(file);
     return size;
+
 }
 
 int start_quiz(int size, Questions* question){
@@ -70,23 +71,23 @@ int start_quiz(int size, Questions* question){
     char answer;
 
     for (int i = 0; i < size; i++){
-        printf("Q: \n %s\n", question[i].question);
-        printf("A)%s\n B)%s\n C)%s\n D)%s\n", question[i].option1, question[i].option2, question[i].option3, question[i].option4);
-        printf("Enter Your Answer(A, B, C, D):");
+        printf("Q: \n %s\n\n", question[i].question);
+        printf(" A)%s\n B)%s\n C)%s\n D)%s\n\n", question[i].option1, question[i].option2, question[i].option3, question[i].option4);
 
-        /*do{
-            scanf("%c", &answer);
+        do{
+            printf("Enter Your Answer(A, B, C, D):");
+            scanf(" %c", &answer);
             answer = toupper(answer);
         }
-        while (answer != 'A' || answer != 'B' || answer != 'C' || answer != 'D');*/
+        while(answer != 'A' && answer != 'B' && answer != 'C' && answer != 'D');
 
-        scanf(" %c", &answer);
+        //scanf(" %c", &answer);
         if(answer ==  question[i].correct_option){
-            printf("Correct!!\n");
+            printf("Correct!!\n\n");
             score++;
         }
         else{
-            printf("Incorrect! , The correct answer is %c\n", question[i].correct_option);
+            printf("Incorrect! , The correct answer is %c\n\n", question[i].correct_option);
         }
     }
     printf("\nYour total score: %d/%d\n", score, size);
