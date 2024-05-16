@@ -1,0 +1,50 @@
+Name: karim
+ ID: 231000797
+Q: 
+ 1) What is the capital of France?
+
+ A)Paris
+ B)Madrid
+ C)Berlin
+ D)Rome
+ Correct answer: A
+ Your answer: A
+Q: 
+ 2) What is the capital of Egypt?
+
+ A)Madrid
+ B)Berlin
+ C)Cairo
+ D)Alexandria
+ Correct answer: C
+ Your answer: B
+Q: 
+ 3) What is the second most populated city in Egypt?
+
+ A)Cairo
+ B)Alexandria
+ C)Luxor
+ D)Fayum
+ Correct answer: B
+ Your answer: B
+Q: 
+ 4) What is the first name of wezza?
+
+ A)sabry
+ B)nakhnoukh
+ C)nour
+ D)nouh 
+ Correct answer: D
+ Your answer: D
+Q: 
+ 5) what is the size of ramy?
+
+ A)6m
+ B)7m
+ C)1.86m
+ D)2mm
+ Correct answer: C
+ Your answer: D
+
+3/5
+
