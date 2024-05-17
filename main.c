@@ -94,7 +94,7 @@ char* choose_quiz(){
 
     struct dirent* file_name_ptr; //making another pointer that points to the files on the directory using the struct because it's somthing on the library
 
-    dir = opendir("/home/kbassem10/code/project/quizes");//pointing the pointer dir with the directory of the app that is "."
+    dir = opendir(".");//pointing the pointer dir with the directory of the app that is "."
 
     char* file_names[100]; //decalring an array of char* to store on it the names of the files
 
