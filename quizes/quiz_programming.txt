@@ -1,0 +1,13 @@
+1) What is the programming lang used for ios?
+A) kotlon
+B) swift
+C) css
+D) javascript
+B
+
+2) which of the following is the oldest programming?
+A) C
+B) Python
+C) Java
+D) javascript
+A
