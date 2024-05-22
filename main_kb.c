@@ -4,23 +4,22 @@
 #include <ctype.h>
 #include <string.h>
 #include <dirent.h>
-#include <iostream>
 
-using namespace std;
+//making a stuct to use it again on the code as a reference for the questions
+typedef struct {
+    char question[300];
+    char option1[300];
+    char option2[300];
+    char option3[300];
+    char option4[300];
+    char correct_option;
+    char answer;
+} Questions;
 
-class Questions{
-    public:
-        string question;
-        string option1;
-        string option2;
-        string option3;
-        string option4;
-        string correct_option;
-        string answer;
-};
-
+//defining the size of the file and it's outside the main to be a global variable so we can use it on any function easly
 int size;
 
+//prototype of the functions that are at the button for better readability
 int count_questions(char* file_name);
 void load_quiz(const char* file_name, Questions* question);
 int start_quiz(int size, Questions* question, int* score);
@@ -29,7 +28,8 @@ char* choose_quiz();
 
 int main(void){
     
-    string name;
+    //naming a variable for the name and the id of the user
+    char* name = malloc(100); //malloc to dynamicly allocate memory for the variable
     printf("Enter your name: ");
     scanf("%s", name);
 
@@ -213,7 +213,7 @@ void report(char* name, int id, int score, int questions_count, char* file_repor
     fprintf(file, "Name: %s\nID: %i\n \t\t %s", name, id, file_name);
 
     for (int i = 0; i < size; i++){
-        fprintf(file, "Q: \n%s\n\n", question[i].question);
+        fprintf(file, "\nQ: \n%s\n\n", question[i].question);
         fprintf(file, " A)%s\n", question[i].option1);
         fprintf(file, " B)%s\n", question[i].option2);
         fprintf(file, " C)%s\n", question[i].option3);
