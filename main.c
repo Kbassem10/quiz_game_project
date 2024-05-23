@@ -180,21 +180,23 @@ int start_quiz(int size, Questions* question, int* score) {
 }
 
 //mathew
-void report(char* name, int id, int score, int questions_count, char* file_report_path, Questions* question, char* file_name){
-    FILE* file = fopen(file_report_path, "a");
+void report(char* name, int id, int score, int questions_count, char* file_report_name, Questions* question, char* file_name) {
 
-    fprintf(file, "Name: %s\nID: %i\n \t\t %s", name, id, file_name);
-
-    for (int i = 0; i < size; i++){
-        fprintf(file, "\nQ: \n%s\n\n", question[i].question);
-        fprintf(file, " %s\n", question[i].option1);
-        fprintf(file, " %s\n", question[i].option2);
-        fprintf(file, " %s\n", question[i].option3);
-        fprintf(file, " %s\n", question[i].option4);
-        fprintf(file, " Correct answer: %c\n", question[i].correct_option);
-        fprintf(file, " Your answer: %c\n", question[i].answer);
+    FILE* file = fopen(file_report_name, "a");
+    fprintf(file, "Name: %s\n", name);
+    fprintf(file, "ID: %d\n", id);
+    fprintf(file, "\n%s\n\n", file_name);
+    for (int i = 0; i < questions_count; i++) {
+        fprintf(file, "%s\n", question[i].question);
+        fprintf(file, "A) %s\n", question[i].option1);
+        fprintf(file, "B) %s\n", question[i].option2);
+        fprintf(file, "C) %s\n", question[i].option3);
+        fprintf(file, "D) %s\n", question[i].option4);
+        fprintf(file, "\nCorrect Answer: %c\n", question[i].correct_option);
+        fprintf(file, "Your ANswer: %c\n\n", question[i].answer);
     }
 
-    fprintf(file,"\n%i/%i\n\n",score, questions_count);
+    fprintf(file, "%f/%i\n", (float)score , questions_count);
+
     fclose(file);
 }
